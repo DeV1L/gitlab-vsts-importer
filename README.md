@@ -38,12 +38,12 @@ html5-game-template
 word-wind
 ```
 
-##### 3. Set yor VSTS credatnials:
+##### 3. Set yor VSTS credetnials:
 * Accont name as $VSTS_ACCOUNT
 * PAT as $VSTS_TOKEN 
 * Team project name as $PROJECT
 
-##### 4. Set yor GitLab credatnials:
+##### 4. Set yor GitLab credetnials:
 * Accont name as $GITLAB_ACCOUNT
 * User name as $GITLAB_USER
 * PAT as $GITLAB_TOKEN
