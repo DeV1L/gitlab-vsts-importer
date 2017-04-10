@@ -28,6 +28,11 @@ PS> Install-Module -Name Team
 * PAT as $GITLAB_TOKEN
 
 ##### 4. OPTIONAL. GitLab repositories list obtains via API. But if you don't want to import all of them, just comment this two lines in the script and create this file manually
+```powershell
+$URL = "https://gitlab.com/api/v4/groups/$($GITLAB_ACCOUNT)?private_token=$($GITLAB_TOKEN)"
+(Invoke-RestMethod -Uri $URL -Method Get -ContentType “application/json”).projects.name | Out-File -FilePath $REPOLIST
+```
+
 Pat to file specified in the $REPOLIST variaple.
 
 Example of repolist file:
