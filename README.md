@@ -34,12 +34,10 @@ $URL = "https://gitlab.com/api/v4/groups/$($GITLAB_ACCOUNT)?private_token=$($GIT
 ```
 
 Pat to file specified in the $REPOLIST variaple.
-
-Example of repolist file:
 ```
 $REPOLIST = "e:\work\gitlab-vsts-importer\repolist.txt"
 ```
-repolist.txt
+Example of repolist file:
 ```
 solitaire-webgl
 lines
