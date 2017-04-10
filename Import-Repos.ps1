@@ -9,15 +9,23 @@ $GITLAB_TOKEN = "YOUR PAT HERE"
 $GITLAB_ACCOUNT = "YOUR ACCOUNT NAME HERE"
 $GIT_FOLDER = "$env:TMP\gitlab-export"
 
+#Login to VSTS
 Add-TeamAccount -Account $VSTS_ACCOUNT -PersonalAccessToken $VSTS_TOKEN
+
+##Get GitLab repositories
+#If you don't want to import all of them, just comment two lines below and create file manually
+$URL = "https://gitlab.com/api/v4/groups/$($GITLAB_ACCOUNT)?private_token=$($GITLAB_TOKEN)"
+(Invoke-RestMethod -Uri $URL -Method Get -ContentType “application/json”).projects.name | Out-File -FilePath $REPOLIST
+
+#Read GitLab repositories from file
 $REPOS = (Get-Content $REPOLIST)
 
-#Folder for repos
+#Create temp folder for repositories
 if(!(Test-Path -Path $GIT_FOLDER )){
     New-Item -ItemType directory -Path $GIT_FOLDER -Verbose
 }
 
-#Clone from GitLab
+#Clone repositories from GitLab
 Foreach ($_ in $REPOS) {
 $GIT = "https://"+$GITLAB_USER+":"+"$GITLAB_TOKEN@gitlab.com/$GITLAB_ACCOUNT/$_"
  
