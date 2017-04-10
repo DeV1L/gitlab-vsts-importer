@@ -8,8 +8,6 @@ This script imports your Git repositories from GitLab to Visual Studio Team Serv
  * [Team](https://github.com/DarqueWarrior/team) module for PowerShell 
  * [Personal access token](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) (PAT) for VSTS account
  * [Personal access token](https://docs.gitlab.com/ee/api/README.html#personal-access-tokens) (PAT) for GitLab account
- * List of GitLab repositories you want to migrate (names only)
-
 
 ## How to use it
 
@@ -19,9 +17,20 @@ This script imports your Git repositories from GitLab to Visual Studio Team Serv
 PS> Install-Module -Name Team
 ```
 
-##### 2. Create a text file with repositories name you want to migrate from GitLab and set it on the $REPOLIST variaple. See repolist.txt as example
+##### 2. Set yor VSTS credetnials:
+* Accont name as $VSTS_ACCOUNT
+* PAT as $VSTS_TOKEN 
+* Team project name as $PROJECT
 
-Example:
+##### 3. Set yor GitLab credetnials:
+* Accont name as $GITLAB_ACCOUNT
+* User name as $GITLAB_USER
+* PAT as $GITLAB_TOKEN
+
+##### 4. OPTIONAL. GitLab repositories list obtains via API. But if you don't want to import all of them, just comment this two lines in the script and create this file manually
+Pat to file specified in the $REPOLIST variaple.
+
+Example of repolist file:
 ```
 $REPOLIST = "e:\work\gitlab-vsts-importer\repolist.txt"
 ```
@@ -37,16 +46,6 @@ word-search
 html5-game-template
 word-wind
 ```
-
-##### 3. Set yor VSTS credetnials:
-* Accont name as $VSTS_ACCOUNT
-* PAT as $VSTS_TOKEN 
-* Team project name as $PROJECT
-
-##### 4. Set yor GitLab credetnials:
-* Accont name as $GITLAB_ACCOUNT
-* User name as $GITLAB_USER
-* PAT as $GITLAB_TOKEN
 
 ##### 5. Start script and see the output
 
