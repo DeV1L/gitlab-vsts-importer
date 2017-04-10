@@ -4,6 +4,7 @@ This script imports your Git repositories from GitLab to Visual Studio Team Serv
 
 ## Requirements
 
+ * Git for Windows
  * [Team](https://github.com/DarqueWarrior/team) module for PowerShell 
  * [Personal access token](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) (PAT) for VSTS account
  * [Personal access token](https://docs.gitlab.com/ee/api/README.html#personal-access-tokens) (PAT) for GitLab account
